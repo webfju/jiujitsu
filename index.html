@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&family=Secular+One&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./src/css/reset.css" />
+  <link rel="stylesheet" href="./src/css/estilos.css" />
+  <link rel="stylesheet" href="./src/css/responsivo.css" />
+
+  <title>FJU JIU JITSU</title>
+
+  <style>
+       @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .menu {
+        width: 100%;
+        padding: 15px 10px;
+      }
+      
+    }
+    
+  </style>
+</head>
+
+<body>
+  <header class="cabecalho">
+    <div class="logo">FJU | Jiu-Jitsu</div>
+    <nav class="menu">
+      <a href="index.html" class="botao-cabecalho">Início</a>
+      <a href="login.html" class="botao-cabecalho">Login</a>
+      <a href="cadastre-se.html" class="botao-cabecalho destaque">Cadastro</a>
+    </nav>
+  </header>
+
+  <main class="personagens">
+    <div class="personagem selecionado">
+      <img class="imagem" src="" alt="Personagem" />
+      <div class="conteudo">
+        <h2 class="nome-personagem">Jiu-Jitsu FJU Trianon</h2>
+        <p class="descricao">O Projeto Jiu-Jitsu (FJU) no Trianon é uma iniciativa social que utiliza a prática do jiu-jitsu como ferramenta de transformação pessoal e comunitária. Por meio de aulas gratuitas, o projeto busca promover valores como disciplina, respeito, superação e companheirismo entre os jovens participantes.</p>
+      </div>
+    </div>
+
+    <div class="personagem">
+      <img class="imagem" src="" alt="Personagem Roronoa Zoro" />
+      <div class="conteudo">
+        <h2 class="nome-personagem">Jiu-Jitsu como disciplina e motivação</h2>
+        <p class="descricao">O Jiu-Jitsu não é apenas uma prática de luta. É um instrumento para: ensinar autocontrole e respeito, desenvolver a disciplina e o foco, promover saúde física e mental.</p>
+      </div>
+    </div>
+
+    <div class="personagem">
+      <img class="imagem" src="" alt="Personagem Monkey D. Luffy" />
+      <div class="conteudo">
+        <h2 class="nome-personagem">Vida espiritual como base de tudo</h2>
+        <p class="descricao">Ao mesmo tempo, o projeto fortalece o lado espiritual dos participantes: oração antes dos treinos, reflexões bíblicas sobre fé, perseverança, obediência e humildade, acompanhamento espiritual para quem busca mudança de vida.</p>
+      </div>
+    </div>
+
+    <div class="personagem">
+      <img class="imagem" src="" alt="Personagem Nami" />
+      <div class="container">
+        <div class="faixa-lateral">
+          <div class="conteudo">
+            <h2 class="nome-personagem">Se <br>Interessou?</h2>
+            <p class="descricao">Entre em contato e faça parte da equipe!<br>
+              Estamos prontos para recebê-lo, ficaremos <br>felizes em tê-lo conosco! Junte-se <br>
+              a nós nessa missão de transformação <br>através do Jiu-Jitsu e da fé.</p>
+            <a href="cadastre-se.html" class="botao-vermelho">Cadastre-se</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <ul class="botoes">
+    <li><button class="botao selecionado">1<img src="src/imagens/WhatsApp Image 2025-06-06 at 08.53.23.jpeg" alt="Tripulação Chopper" /></button></li>
+    <li><button class="botao">2<img src="src/imagens/WhatsApp Image 2025-06-06 at 08.53.23.jpeg" alt="Tripulação Roronoa Zoro" /></button></li>
+    <li><button class="botao">3<img src="src/imagens/WhatsApp Image 2025-06-06 at 08.53.23.jpeg" alt="Tripulação Monkey D. Luffy" /></button></li>
+    
+  </ul>
+
+  <script type="module" src="src/js/index.js"></script>
+</body>
+</html>

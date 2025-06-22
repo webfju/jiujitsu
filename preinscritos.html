@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pré-Inscritos - FJU Jiu-Jitsu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .menu-lateral {
+      width: 250px;
+      background-color: #1a1a1a;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .menu-lateral h2 {
+      color: red;
+      margin-bottom: 20px;
+    }
+
+    .menu-lateral nav a {
+      display: block;
+      color: white;
+      margin: 10px 0;
+      text-decoration: none;
+      padding: 8px;
+      border-radius: 5px;
+      transition: background 0.2s;
+    }
+
+    .menu-lateral nav a:hover {
+      background-color: red;
+      color: black;
+    }
+
+    .btn-sair {
+      background-color: red;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .btn-sair:hover {
+      background-color: #e60000;
+    }
+
+    .conteudo {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .conteudo h1 {
+      margin-bottom: 30px;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #1a1a1a;
+      border-left: 4px solid red;
+      border-radius: 10px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #fff;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #ccc;
+      margin: 4px 0;
+    }
+
+     @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .menu-lateral {
+        width: 100%;
+        padding: 15px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="menu-lateral">
+      <h2>FJU Jiu-Jitsu</h2>
+      <nav>
+        <a href="cadastro.html">Cadastro de Atleta</a>
+        <a href="atletas.html">Atletas Cadastrados</a>
+        <a href="preinscritos.html">Pré-inscritos</a>
+  
+      </nav>
+      <button class="btn-sair" id="btn-sair">Sair</button>
+    </aside>
+
+    <main class="conteudo">
+      <h1>Pré-Inscritos</h1>
+      <div class="cards" id="cards-container">
+        <!-- Cards dos pré-inscritos serão inseridos aqui -->
+      </div>
+    </main>
+  </div>
+
+  <script type="module">
+    import { db } from './src/js/firebase.js';
+    import { collection, query, orderBy, onSnapshot } from 'https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js';
+
+    const container = document.getElementById('cards-container');
+
+    const q = query(collection(db, 'cadastros'), orderBy('dataCadastro', 'desc'));
+
+    onSnapshot(q, (snapshot) => {
+      container.innerHTML = '';
+
+      console.log('Snapshot recebido:', snapshot);
+
+      if (snapshot.empty) {
+        container.innerHTML = '<p>Nenhum pré-inscrito encontrado.</p>';
+        return;
+      }
+
+      snapshot.forEach(doc => {
+        const data = doc.data();
+
+        console.log('Documento:', doc.id, data);
+
+        const card = document.createElement('div');
+        card.classList.add('card');
+
+        card.innerHTML = `
+          <h3>${data.nome}</h3>
+          <p><strong>Idade:</strong> ${data.idade}</p>
+          <p><strong>Endereço:</strong> ${data.endereco}</p>
+          <p><strong>Telefone:</strong> ${data.telefone}</p>
+          <p><small>Data cadastro: ${data.dataCadastro ? data.dataCadastro.toDate().toLocaleString() : 'Sem data'}</small></p>
+        `;
+
+        container.appendChild(card);
+      });
+    });
+
+   
+  import { auth } from './src/js/firebase.js';
+  import { signOut } from 'https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js';
+
+  const btnSair = document.getElementById('btn-sair');
+
+  btnSair.addEventListener('click', () => {
+    signOut(auth)
+      .then(() => {
+        // Logout bem-sucedido
+        window.location.href = 'login.html'; // Redirecione para página de login
+      })
+      .catch((error) => {
+        console.error('Erro ao sair:', error);
+        alert('Erro ao sair. Tente novamente.');
+      });
+  });
+</script>
+
+  </script>
+  <script type="module" src="src/js/firebase.js"></script>
+  <script type="module" src="src/js/preinscritos.js"></script>
+</body>
+</html>

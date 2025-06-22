@@ -1,0 +1,60 @@
+.faixa-lateral {
+  width: 320px;
+  background-color: #111;
+  padding: 40px 30px;
+  font-family: 'Rubik', sans-serif;
+  color: white;
+  min-height: 100vh;
+}
+
+.titulo-login {
+  color: red;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.aviso {
+  color: #ccc;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.formulario input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+}
+
+.formulario button {
+  width: 100%;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.formulario button:hover {
+  background-color: #cc0000;
+}
+
+.link-voltar {
+  display: block;
+  margin-top: 15px;
+  color: #ccc;
+  text-align: center;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.link-voltar:hover {
+  text-decoration: underline;
+}

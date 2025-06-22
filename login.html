@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Responsáveis</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&family=Secular+One&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/estilos.css" />
+    <link rel="stylesheet" href="./src/css/responsivo.css" />
+    <link rel="stylesheet" href="src/css/login.css" />
+
+    <style>
+    
+     @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .menu {
+        width: 100%;
+        padding: 15px 10px;
+      }
+      
+    }
+    </style>
+  </head>
+
+  <body>
+    <header class="cabecalho">
+      <div class="logo">FJU | Jiu-Jitsu</div>
+      <nav class="menu">
+        <a href="index.html" class="botao-cabecalho">Início</a>
+        <a href="login.html" class="botao-cabecalho">Login</a>
+        <a href="cadastre-se.html" class="botao-cabecalho destaque">Cadastro</a>
+      </nav>
+    </header>
+
+    <main class="personagens">
+      <div class="personagem selecionado">
+        <img class="imagem" src="" alt="Personagem" />
+        <div class="container">
+          <div class="faixa-lateral">
+            <div class="conteudo">
+              <h2 class="nome-personagem">Login</h2>
+              <p>Área restrita Apenas responsáveis</p>
+
+              <form class="formulario-login" onsubmit="event.preventDefault(); login();">
+                <input type="email" id="email" name="email" placeholder="E-mail" required />
+                <input type="password" id="senha" name="senha" placeholder="Senha" required />
+                <button class="botao-entrar">Entrar</button>
+
+                <p class="esqueci-senha">
+                  <a href="#" onclick="esqueciSenha()">Esqueci a senha?</a>
+                </p>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./src/js/firebase.js"></script>
+    <script type="module" src="./src/js/login.js"></script>
+  </body>
+</html>

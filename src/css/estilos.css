@@ -1,0 +1,206 @@
+body {
+    background-color: #000000;
+    overflow: hidden;
+}
+
+main::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 80vw;
+
+    
+}
+
+main .personagem {
+    display: none;
+    height: 100vh;
+}
+
+main .personagem.selecionado {
+    display: block;
+}
+
+main .personagem .imagem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.conteudo {
+    position: absolute;
+    top: 0;
+    left: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    max-width: 380px;
+    z-index: 1;
+}
+
+.conteudo .nome-personagem {
+    color: red;
+    font-size: 39px;
+    font-family: "Secular One";
+    font-weight: 400;
+    margin-bottom: px;
+}
+
+.conteudo .descricao {
+    color: #ffffff;
+    font-family: "Rubik";
+    line-height: 25px;
+}
+
+.conteudo .logo {
+    background-image: url("../imagens/one-piece-logo.png");
+    background-size: cover;
+    height: 100px;
+    width: 230px;
+    margin-bottom: 35px;
+}
+
+.botoes {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 110vh;
+    width: 160px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.botoes .botao {
+    border: none;
+    background: #000000;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.botoes .botao img {
+    border-radius: 50%;
+}
+
+.botoes .botao.selecionado {
+    transform: scale(1.2);
+  
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #000; /* Fundo preto principal */
+}
+
+.faixa-lateral {
+  width: 350px;
+  background-color: #070707; /* Cinza escuro */
+  color: white;
+  padding: 30px 40px;
+  font-family: 'Rubik', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 80px;
+}
+
+.faixa-lateral h2 {
+  color: red;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.faixa-lateral p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.botao-vermelho {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.botao-vermelho:hover {
+  background-color: #b30000;
+}
+.cabecalho {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  font-family: 'Rubik', sans-serif;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(240, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.botao-cabecalho {
+  color: white;
+  text-decoration: none;
+  padding: 10px 18px;
+  border: 2px solid white;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+
+.botao-cabecalho:hover {
+  background-color: red;
+  color: black;
+  border-color: red;
+}
+
+.destaque {
+  border-color: red;
+  color: red;
+}
+
+.destaque:hover {
+  background-color: white;
+  color: red;
+  border-color: white;
+}
+
+.cabecalho {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #111; /* ou a cor que estiver usando */
+  z-index: 1000;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main.personagens {
+  margin-top: 80px; /* ajusta dependendo da altura do seu header */
+}

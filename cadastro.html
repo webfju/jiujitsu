@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro de Atleta</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+.menu-lateral {
+  width: 250px;
+  background-color: #1a1a1a;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+
+
+    .menu-lateral h2 {
+      color: red;
+      margin-bottom: 20px;
+    }
+
+    .menu-lateral nav a {
+      display: block;
+      color: white;
+      margin: 10px 0;
+      text-decoration: none;
+      padding: 8px;
+      border-radius: 5px;
+      transition: background 0.2s;
+    }
+
+    .menu-lateral nav a:hover {
+      background-color: red;
+      color: black;
+    }
+
+    .btn-sair {
+      background-color: red;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+      
+    }
+
+    .btn-sair:hover {
+      background-color: #e60000;
+    }
+
+    .formulario {
+      flex: 1;
+      padding: 40px;
+      background-color: #121212;
+    }
+
+    .formulario h1 {
+      color: red;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"] {
+      background-color: black;
+      border: 1px solid red;
+      color: white;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+
+    input[type="text"]::placeholder,
+    input[type="email"]::placeholder {
+      color: #bbb;
+    }
+
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .radio-group label,
+    .checkbox-group label {
+      color: white;
+      font-size: 14px;
+    }
+
+    button[type="submit"] {
+      background-color: red;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      
+    }
+
+    button[type="submit"]:hover {
+      background-color: #e60000;
+    }
+     @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .menu-lateral {
+        width: 100%;
+        padding: 15px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="menu-lateral">
+      <h2>FJU Jiu-Jitsu</h2>
+      <nav>
+        <a href="cadastro.html">Cadastro de Atleta</a>
+        
+        <a href="ATLETAS.HTML">Atletas Cadastrados</a>
+        <a href="preinscritos.html">Pré-inscritos</a>
+       
+      </nav>
+      <button class="btn-sair" id="btn-sair">Sair</button>
+    </aside>
+
+    <main class="formulario">
+      <h1>Cadastro de Novo Atleta</h1>
+      <form>
+        <input type="text" placeholder="Nome completo" required />
+        <input type="text" placeholder="Endereço" />
+        <input type="text" placeholder="Bairro" />
+        <input type="text" placeholder="CEP" />
+        <input type="text" placeholder="WhatsApp" />
+        <input type="text" placeholder="Celular" />
+        <input type="email" placeholder="E-mail" />
+        <input type="text" placeholder="Profissão" />
+        <input type="text" placeholder="Nacionalidade" />
+        <input type="text" placeholder="Naturalidade" />
+        <input type="date" placeholder="Data de nascimento" />
+        <input type="text" placeholder="RG" />
+        <input type="text" placeholder="CPF" />
+        <input type="text" placeholder="Nome do pai" />
+        <input type="text" placeholder="Nome da mãe" />
+        
+        <p>Função:</p>
+        <div class="radio-group">
+          <label><input type="radio" name="funcao" /> Obreiro</label>
+          <label><input type="radio" name="funcao" /> Jovem</label>
+          <label><input type="radio" name="funcao" /> Voluntário</label>
+          <label><input type="radio" name="funcao" /> Evangelista</label>
+        </div>
+
+        <input type="text" placeholder="Em caso de urgência, procurar:" />
+        <input type="text" placeholder="Grau de afinidade" />
+
+        <p>Saúde:</p>
+        <input type="text" placeholder="Possui alguma doença ou restrição médica?" />
+        <input type="text" placeholder="Toma remédio controlado?" />
+        <p>Ao fazer exercício, sente:</p>
+        <div class="checkbox-group">
+          <label><input type="checkbox" /> Dores no peito</label>
+          <label><input type="checkbox" /> Falta de ar</label>
+          <label><input type="checkbox" /> Vertigens</label>
+        </div>
+
+        <p>Histórico de atividade física</p>
+        <label>Já praticou jiu-jitsu?
+          <input type="radio" name="jiujitsu" /> Sim
+          <input type="radio" name="jiujitsu" /> Não
+        </label>
+        <input type="text" placeholder="Se sim, por quanto tempo?" />
+
+        <button type="submit">Enviar Cadastro</button>
+      </form>
+    </main>
+  </div>
+  <script type="module" src="src/js/logount.js"></script>
+  <script type="module" src="src/js/restrita.js"></script>
+  <script type="module" src="src/js/firebase.js"></script>
+ 
+ 
+ <script type="module"> // src/js/enviarCadastro.js
+import { db } from "./src/js/firebase.js"
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const dados = {
+      nome: form[0].value.trim(),
+      endereco: form[1].value.trim(),
+      bairro: form[2].value.trim(),
+      cep: form[3].value.trim(),
+      whatsapp: form[4].value.trim(),
+      celular: form[5].value.trim(),
+      email: form[6].value.trim(),
+      profissao: form[7].value.trim(),
+      nacionalidade: form[8].value.trim(),
+      naturalidade: form[9].value.trim(),
+      nascimento: form[10].value,
+      rg: form[11].value.trim(),
+      cpf: form[12].value.trim(),
+      nomePai: form[13].value.trim(),
+      nomeMae: form[14].value.trim(),
+      funcao: form.querySelector('input[name="funcao"]:checked')?.parentElement.textContent.trim() || "",
+      emergencia: form[16].value.trim(),
+      afinidade: form[17].value.trim(),
+      doenca: form[18].value.trim(),
+      remedio: form[19].value.trim(),
+      doresNoPeito: form.querySelectorAll('.checkbox-group input')[0].checked,
+      faltaDeAr: form.querySelectorAll('.checkbox-group input')[1].checked,
+      vertigens: form.querySelectorAll('.checkbox-group input')[2].checked,
+      praticouJiuJitsu: form.querySelector('input[name="jiujitsu"]:checked')?.value || "",
+      tempoJiuJitsu: form[23].value.trim(),
+      criadoEm: new Date()
+    };
+
+    try {
+      await addDoc(collection(db, "atletas"), dados);
+      alert("Cadastro enviado com sucesso!");
+      form.reset();
+    } catch (error) {
+      console.error("Erro ao enviar cadastro:", error);
+      alert("Erro ao enviar cadastro. Veja o console para detalhes.");
+    }
+  });
+});
+
+
+
+</script>
+</body>
+</html>

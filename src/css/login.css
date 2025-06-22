@@ -1,0 +1,133 @@
+body {
+      margin: 0;
+      font-family: 'Rubik', sans-serif;
+      background-color: #000;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .login-container {
+      background-color: #111;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+      max-width: 400px;
+      width: 50%;
+    }
+
+    h2 {
+      color: red;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input {
+      padding: 12px;
+      margin-bottom: 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 12px;
+      background-color: red;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: white;
+      color: red;
+    }
+
+    .voltar {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .voltar a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .voltar a:hover {
+      color: red;
+    }
+
+  .container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #000; /* Fundo preto principal */
+}
+
+.faixa-lateral {
+  width: 350px;
+  background-color: #070707; /* Cinza escuro */
+  color: white;
+  padding: 30px 40px;
+  font-family: 'Rubik', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 1215px;
+}
+
+.faixa-lateral h2 {
+  color: red;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.faixa-lateral p {
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.botao-vermelho {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.conteudo .descricao {
+    color: #ffffff;
+    font-family: "Rubik";
+    line-height: 30px;
+}
+.esqueci-senha {
+  margin-top: 15px;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+  @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .menu-lateral {
+        width: 100%;
+        padding: 15px 10px;
+      }
+    }

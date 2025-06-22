@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&family=Secular+One&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./src/css/reset.css" />
+  <link rel="stylesheet" href="./src/css/estilos.css" />
+  <link rel="stylesheet" href="./src/css/responsivo.css" />
+  <link rel="stylesheet" href="src/css/login.css" />
+
+  <title>Novo Cadastro</title>
+
+  <style>
+       @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .menu {
+        width: 100%;
+        padding: 15px 10px;
+      }
+      
+    }
+    
+  </style>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">FJU | Jiu-Jitsu</div>
+    <nav class="menu">
+      <a href="index.html" class="botao-cabecalho">Início</a>
+      <a href="login.html" class="botao-cabecalho">Login</a>
+      <a href="cadastre-se.html" class="botao-cabecalho destaque">Cadastro</a>
+    </nav>
+  </header>
+
+  <main class="personagens">
+    <div class="personagem selecionado">
+      <img class="imagem" src="" alt="Personagem" />
+      <div class="container">
+        <div class="faixa-lateral">
+          <div class="conteudo">
+            <h2 class="nome-personagem">Novo Cadastro</h2>
+            <p>Atenção: preencha todos os campos</p>
+
+            <!-- Formulário de cadastro -->
+            <form id="formCadastro" class="formulario">
+              <input type="text" id="nome" name="nome" placeholder="Nome completo" required />
+              <input type="number" id="idade" name="idade" placeholder="Idade" required />
+              <input type="text" id="endereco" name="endereco" placeholder="Endereço" required />
+              <input type="tel" id="telefone" name="telefone" placeholder="Telefone" required />
+              <button type="submit" class="botao-vermelho">Cadastrar</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Firebase e envio de dados -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAGmtGzR6YzOvvVQYJCM34LP2H91m42qGQ",
+      authDomain: "fju-jiu-jitsu.firebaseapp.com",
+      projectId: "fju-jiu-jitsu",
+      storageBucket: "fju-jiu-jitsu.firebasestorage.app",
+      messagingSenderId: "967181597457",
+      appId: "1:967181597457:web:c2e721a63f14407bf2eab0"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    document.getElementById("formCadastro").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value;
+      const idade = document.getElementById("idade").value;
+      const endereco = document.getElementById("endereco").value;
+      const telefone = document.getElementById("telefone").value;
+
+      console.log("📦 Dados que serão enviados:", { nome, idade, endereco, telefone });
+
+      try {
+        await addDoc(collection(db, "cadastros"), {
+          nome,
+          idade,
+          endereco,
+          telefone,
+          dataCadastro: new Date()
+        });
+
+        alert("Cadastro enviado com sucesso!");
+        document.getElementById("formCadastro").reset();
+      } catch (erro) {
+        console.error("❌ Erro ao cadastrar:", erro);
+        alert("Erro ao enviar os dados.");
+      }
+    });
+  </script>
+</body>
+</html>
